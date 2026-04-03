@@ -1,0 +1,41 @@
+<div class="factura-container">
+
+  <div class="header">
+    <h1>Factura {{ mostrarLetra(mifactura.tipo)}}</h1>
+    <div class="info">
+      <p><strong>N°:</strong> {{ mifactura.numero }}</p>
+      <p><strong>Fecha:</strong> {{ mifactura.fecha | date:'dd/MM/yyyy' }}</p>
+    </div>
+  </div>
+
+  <div class="receptor">
+    <h3>Receptor</h3>
+    <p>{{ mifactura.receptor }}</p>
+  </div>
+
+  <div class="detalle">
+    <table>
+      <thead>
+        <tr>
+          <th>Concepto</th>
+          <th>Importe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Neto</td>
+          <td>${{ mifactura.neto }}</td>
+        </tr>
+        <tr>
+          <td>IVA</td>
+          <td>${{ mifactura.iva }}</td>
+        </tr>
+        <tr class="total">
+          <td>Total</td>
+          <td>${{ mifactura.total }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
