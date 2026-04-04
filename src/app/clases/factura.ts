@@ -18,10 +18,19 @@ this.receptor= receptor;
 this.tipo= tipo;
 
 }
+
+calcularTotal() {
+  this.iva= this.neto*0.21;
+  this.total=this.iva+this.neto;
 }
+
+}
+
 
  export enum tipoFactura {
 A,
 B, 
 C
 }
+
+

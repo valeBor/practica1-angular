@@ -1,18 +1,58 @@
 <div class="factura-container">
 
+  <!-- ENCABEZADO -->
   <div class="header">
-    <h1>Factura {{ mostrarLetra(mifactura.tipo)}}</h1>
-    <div class="info">
-      <p><strong>N°:</strong> {{ mifactura.numero }}</p>
-      <p><strong>Fecha:</strong> {{ mifactura.fecha | date:'dd/MM/yyyy' }}</p>
+
+    <!-- IZQUIERDA -->
+    <div class="empresa">
+      <p class="fantasia">MI EMPRESA S.A.</p>
+      <p>CUIT: 30-12345678-9</p>
+      <p>Dirección: Av. Siempre Viva 123</p>
+      <p>Condición IVA: Responsable Inscripto</p>
     </div>
+
+    <!-- CENTRO -->
+    <div class="tipo">
+      <div class="letra">
+        <select [(ngModel)]="mifactura.tipo">
+          <option [ngValue]="EtipoFactura.A">A</option>
+          <option [ngValue]="EtipoFactura.B">B</option>
+          <option [ngValue]="EtipoFactura.C">C</option>
+        </select>
+      </div>
+      <p>COD. 001</p>
+    </div>
+
+    <!-- DERECHA -->
+    <div class="comprobante">
+      <h2>FACTURA</h2>
+      <p>Punto de Venta: 0001</p>
+      <p>Comp. N°: <input type="number" [(ngModel)]="mifactura.numero"></p>
+      <p>
+        Fecha:
+        <input type="date" [(ngModel)]="mifactura.fecha">
+      </p>
+    </div>
+
+  </div> <!-- ✅ ACA CIERRA HEADER -->
+
+  <!-- CLIENTE -->
+  <div class="cliente">
+    <h3>Datos del Cliente</h3>
+    <p><strong>Nombre:</strong>
+      <input type="text" [(ngModel)]="mifactura.receptor">
+    </p>
+    <p><strong>CUIT:</strong> 20-00000000-0</p>
+    <p><strong>Dirección:</strong> Calle Falsa 456</p>
+    <p><strong>Condición IVA:</strong> Consumidor Final</p>
   </div>
 
-  <div class="receptor">
-    <h3>Receptor</h3>
-    <p>{{ mifactura.receptor }}</p>
+  <!-- BOTÓN -->
+  <div>
+    <input type="button" (click)="agregarDetalle()" value="Agregar Detalle">
   </div>
 
+  <!-- DETALLE -->
   <div class="detalle">
     <table>
       <thead>
@@ -36,6 +76,16 @@
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <!-- BOTÓN -->
+  <div>
+    <input type="button" (click)="guardar()" value="Emitir">
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>Comprobante autorizado por ARCA</p>
   </div>
 
 </div>
