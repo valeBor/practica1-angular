@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Factura, tipoFactura } from '../../clases/factura';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { Detallefactura } from '../../clases/detallefactura';
 
 @Component({
   selector: 'app-lista',
@@ -12,8 +12,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class Lista {
 public mifactura: Factura;
-public tipo: String="text";
+public tipo: string="text";
 public EtipoFactura= tipoFactura;
+public claseCuerpo: string='cuerpo';
 
 constructor(){
 
@@ -26,7 +27,9 @@ mostrarLetra(valor: tipoFactura): string{
 }
 
 agregarDetalle(){
-     this.mifactura.neto +=3500;
+     this.mifactura.items.push(
+      <Detallefactura>{cantidad: this.mifactura.items.length+1, descripcion:'producto 1', precioUnitario:25000});
+     
      this.mifactura.calcularTotal();
 
 }
@@ -34,6 +37,11 @@ agregarDetalle(){
 guardar(){
   this.mifactura
   console.info(this.mifactura);
+
+}
+
+cambiarFondo(){
+   this.claseCuerpo=this.mifactura.tipo==this.EtipoFactura.A?'cuerpoContraste':this.mifactura.tipo==this.EtipoFactura.B?'cuerpoPastel':'cuerpo';
 
 }
 

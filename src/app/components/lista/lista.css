@@ -1,3 +1,20 @@
+.cuerpo {
+background-color: aquamarine;
+
+}
+
+.cuerpoContraste{
+   
+  background-color: bisque;
+
+}
+
+.cuerpoPastel{
+   
+  background-color: rgb(132, 116, 221);
+
+}
+
 .factura-container {
   width: 900px;
   margin: 20px auto;
@@ -5,7 +22,7 @@
   border: 1px solid black;
   font-family: Arial, sans-serif;
   font-size: 12px;
-  background: white;
+  background: rgb(232, 231, 231);
 }
 
 /* HEADER */
@@ -109,6 +126,7 @@ input[type="button"]:hover {
 .detalle td {
   border: 1px solid black;
   padding: 5px;
+  text-align: center;
 }
 
 .detalle th {

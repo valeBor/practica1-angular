@@ -1,3 +1,6 @@
+<div [ngClass]="claseCuerpo">
+
+
 <div class="factura-container">
 
   <!-- ENCABEZADO -->
@@ -14,7 +17,7 @@
     <!-- CENTRO -->
     <div class="tipo">
       <div class="letra">
-        <select [(ngModel)]="mifactura.tipo">
+        <select [(ngModel)]="mifactura.tipo"   (change)="cambiarFondo()">
           <option [ngValue]="EtipoFactura.A">A</option>
           <option [ngValue]="EtipoFactura.B">B</option>
           <option [ngValue]="EtipoFactura.C">C</option>
@@ -53,6 +56,40 @@
   </div>
 
   <!-- DETALLE -->
+   <div class="detalle">
+     <table>
+      <thead>
+        <tr>
+          <th>Cant</th>
+          <th>Unidad</th>
+          <th>Descripcion</th>
+          <th>PrecioUnit</th>
+          <th>Bonif</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td> 1 </td>
+          <td> 10</td>
+          <td>luces</td>
+          <td>100 </td>
+          <td>10% </td>
+          <td>9000</td>
+        </tr>
+        <tr>
+          <td> 1 </td>
+          <td> 10</td>
+          <td>luces</td>
+          <td>100 </td>
+          <td>10% </td>
+          <td>9000</td>
+        </tr>
+      </tbody>
+     </table>
+
+
+   </div>
   <div class="detalle">
     <table>
       <thead>
@@ -88,4 +125,5 @@
     <p>Comprobante autorizado por ARCA</p>
   </div>
 
+</div>
 </div>
